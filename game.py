@@ -29,12 +29,12 @@ def terminate():
     sys.exit()
 
 def start_screen():
-    intro_text = ["Вперед за тауком!!!", "",
+    intro_text = ["Go to energy!!!", "",
                   "Правила игры",
                   "Прыжок вверх",
                   "Бег(шаг) вперед"]
 
-    fon = pygame.transform.scale(load_image('tauk_fon.jpg'), (WIDTH, HEIGHT))
+    fon = pygame.transform.scale(load_image('zastavka.png'), (WIDTH, HEIGHT))
     screen.blit(fon, (0, 0))
     font = pygame.font.Font(None, 30)
     text_coord = 50
@@ -58,5 +58,17 @@ def start_screen():
         clock.tick(FPS)
 if __name__ == '__main__':
     running = True
+    startscreen = start_screen()
     while running:
-        start_screen()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+                sys.exit()
+
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    # self.initialize()
+                    running = False
+        screen.blit(startscreen, 0)
+        pygame.display.update()
