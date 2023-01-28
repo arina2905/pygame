@@ -31,8 +31,7 @@ def terminate():
 def start_screen():
     intro_text = ["Go to energy!!!", "",
                   "Правила игры",
-                  "Прыжок вверх",
-                  "Бег(шаг) вперед"]
+                  "Прыжок вверх"]
 
     fon = pygame.transform.scale(load_image('zastavka.png'), (WIDTH, HEIGHT))
     screen.blit(fon, (0, 0))
@@ -53,12 +52,13 @@ def start_screen():
                 terminate()
             elif event.type == pygame.KEYDOWN or \
                     event.type == pygame.MOUSEBUTTONDOWN:
+                print("!!!!")
                 return  # начинаем игру
         pygame.display.flip()
         clock.tick(FPS)
 if __name__ == '__main__':
     running = True
-    startscreen = start_screen()
+    #startscreen = start_screen()
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -70,5 +70,5 @@ if __name__ == '__main__':
                 if event.key == pygame.K_RETURN:
                     # self.initialize()
                     running = False
-        screen.blit(startscreen, 0)
+        #screen.blit(pygame.fon, 0)
         pygame.display.update()
